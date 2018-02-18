@@ -1,0 +1,10 @@
+<!-- NOTE: @see ngClick for how to pass data selection to outside expression -->
+<md-list dir="rtl">
+    <md-list-item ng-repeat="report in $ctrl.reports | filter: $ctrl.filterBy
+                            | orderBy:'reportNumber':$ctrl.orderReversed">
+        <md-button ng-click="$ctrl.showDetails({report:report})" ng-class="{'selected' : report === $ctrl.selected }">
+            <md-icon md-svg-icon="svg-{{report.reportType}}" class="avatar"></md-icon>
+            טופס מספר {{report.reportNumber}}
+        </md-button>
+    </md-list-item>
+</md-list>

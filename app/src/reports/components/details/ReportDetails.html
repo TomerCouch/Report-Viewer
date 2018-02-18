@@ -1,0 +1,36 @@
+<div layout="row">
+    <!--Image by report-type-->
+    <md-icon md-svg-icon="svg-{{$ctrl.selected.reportType}}" class="avatar"></md-icon>
+    <span flex></span>
+    <md-button class="md-accent" ng-click="$ctrl.share($event)" aria-label="Share report">
+        <md-icon md-svg-icon="share"></md-icon>
+    </md-button>
+</div>
+<h2 style="text-align: center;" dir="ltr">{{$ctrl.selected.reportNumber}} טופס מספר </h2>
+<table class="table report-table">
+    <thead>
+    <tr>
+        <th><span>סוג מסמך</span></th>
+        <th><span>מספר מסמך</span></th>
+        <th><span>תאריך המסמך</span></th>
+        <th><span>סכום</span></th>
+        <th><span>מספר לקוח</span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td> {{ $ctrl.selected.reportType}}</td>
+        <td> {{ $ctrl.selected.reportNumber}}</td>
+        <!--Workaround for displaying the date RTL-->
+        <td dir="ltr" style="text-align: right"> {{ $ctrl.selected.createdDate }}</td>
+        <td> {{ $ctrl.selected.amount}}</td>
+        <td> {{ $ctrl.selected.customerID}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<!--TODO: share button on the bottom-right: even with the sidenav opens/closes, even when different screen sizes are applyed, at scrolling -->
+<!--<md-button class="md-fab md-fab-bottom-right" hide-sm hide-xs ng-click="$ctrl.share($event)" aria-label="Share">-->
+<!--<md-icon md-svg-icon="share"></md-icon>-->
+<!--</md-button>-->
+

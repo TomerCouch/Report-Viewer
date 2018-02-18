@@ -1,0 +1,210 @@
+[ng-cloak] {
+    display: none;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Toolbar area */
+
+.menu {
+    background-color: transparent;
+    border: none;
+    height: 38px;
+    margin: 16px;
+    width: 36px;
+}
+
+md-toolbar h1 {
+    margin: auto;
+}
+
+/* Sidenav area */
+
+md-list .md-button {
+    color: inherit;
+    font-weight: 500;
+    text-align: right;
+    width: 100%;
+}
+
+md-list .md-button.selected {
+    color: #03a9f4;
+}
+
+md-sidenav md-list {
+    padding: 0px 0px 8px 0px;
+}
+
+/* Primary content area */
+
+.list-view-container {
+    flex-direction: row-reverse;
+}
+
+.loading-container {
+    text-align: center;
+}
+
+.loading-container > h1 {
+    margin-top: 200px;
+    width: 100%;
+}
+
+#content {
+    overflow: auto;
+}
+
+#content {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
+}
+
+#content .md-button.share {
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    margin: 8px auto 16px 0;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+#content md-icon.avatar {
+    margin-top: 10px;
+}
+
+#content .md-button.share > md-icon {
+    fill: black;
+    width: 36px;
+    height: 36px;
+}
+
+md-button.menuBtn > md-icon {
+    fill: white;
+    width: 24px;
+    height: 24px;
+}
+
+#content .md-button.share:active > md-icon {
+    background-color: #dadada;
+    border-radius: 75%;
+    padding: 4px;
+    transition: all 100ms ease-out 30ms;
+}
+
+#content img {
+    display: block;
+    height: auto;
+    max-width: 500px;
+}
+
+/* Utils */
+
+.content-wrapper {
+    position: relative;
+}
+
+md-toolbar h1 {
+    font-size: 1.250em;
+    font-weight: 400;
+}
+
+.reports-table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 20px;
+    direction: rtl;
+}
+
+.reports-table td, .reports-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.reports-table tbody > tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.reports-table tbody > tr:hover {
+    background-color: #ddd;
+}
+
+.reports-table thead > tr:first-child {
+    background-color: #323232
+}
+
+.reports-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
+}
+
+.report-table > thead > tr:first-child {
+    font-size: medium;
+}
+
+.report-table > thead > tr:first-child:hover {
+    cursor: pointer;
+}
+
+.report-table-search > th > * {
+    height: 24px;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.report-table > thead > tr > * {
+    text-align: right;
+}
+
+.st-sort-ascent:before {
+    content: '\25B2';
+}
+
+.st-sort-descent:before {
+    content: '\25BC';
+}
+
+.avatar {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0px;
+    vertical-align: middle;
+    zoom: 0.70;
+    transform: translateZ(0);
+    -webkit-transform: scale(0.70);
+    -moz-transform: scale(0.70);
+}
+
+.avatar:after {
+    content: '?';
+    font-size: 6em;
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+
+md-bottom-sheet md-icon {
+    margin-right: 20px;
+}
+
+span.name {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-left: 5px;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <title>דוחות ריווחית</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700'>
+    <link rel="stylesheet" href="./jspm_packages/github/angular/bower-material@master/angular-material.css"/>
+    <link rel="stylesheet" href="assets/app.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+</head>
+
+<body ng-cloak layout="column" dir="rtl" ng-controller="AppController as app">
+
+<!-- Container #1 (see wireframe) -->
+<md-toolbar layout="row" class="md-toolbar-tools">
+    <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()"
+               aria-label="Show Report List">
+        <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
+    <span class="md-title"> ריווחית - {{app.viewerTitle}}</span>
+    <span class="md-subhead" ng-if="app.hasReports" style="margin-right: 2em;">עודכן לאחרונה: {{app.lastUpdated}}</span>
+    <span flex></span>
+
+    <div aria-label="Menu Buttons" ng-if="app.hasReports">
+        <md-button class="menu md-icon-button" ng-disabled="app.isLoading" ng-click="app.load()"
+                   aria-label="Refresh Report Request">
+            <md-icon md-svg-icon="refresh"></md-icon>
+        </md-button>
+
+        <md-button class="menu md-icon-button" ng-click="app.toggleView()"
+                   aria-label="Toggle between List/Table" ng-if="app.hasReports">
+            <md-icon md-svg-icon="{{app.toggleViewer && 'list_view' || 'table_view'}}"></md-icon>
+        </md-button>
+
+    </div>
+</md-toolbar>
+<md-progress-linear md-mode="indeterminate" ng-if="app.isLoading"></md-progress-linear>
+
+<!-- Container #2 -->
+<div flex layout="row" ng-show="app.hasReports">
+    <!-- Container #3 -->
+    <md-sidenav class="md-whiteframe-4dp md-sidenav-right" md-is-locked-open="$mdMedia('gt-sm')"
+                md-component-id="right" ng-click="app.toggleList()"
+                ng-if="!app.toggleViewer">
+        <div hide-sm hide-xs>
+            <md-input-container>
+                <md-button class="md-icon-button" ng-click="app.toggleOrder()" aria-label="Reverse Order">
+                    <md-icon md-svg-icon="{{app.reversedOrder && 'arrow_up' || 'arrow_down'}}"></md-icon>
+                </md-button>
+            </md-input-container>
+
+            <md-input-container style="vertical-align: top;">
+                <label>חפש לפי מספר</label>
+                <input ng-model="app.filters.reportNumber">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <reports-list
+                    reports="app.reports"
+                    filter-by="app.filters"
+                    selected="app.selected"
+                    order-reversed="app.reversedOrder"
+                    on-selected="app.selectReport(report)">
+            </reports-list>
+        </div>
+    </md-sidenav>
+
+    <!-- Container #4 -->
+    <md-content flex id="content">
+        <!-- Container #5A -->
+        <report-details
+                ng-if="!app.toggleViewer"
+                selected="app.selected">
+        </report-details>
+
+        <!--Container #5B-->
+        <reports-table
+                ng-if="app.toggleViewer"
+                reports="app.reports">
+        </reports-table>
+    </md-content>
+</div>
+
+<!--Replacement Container for #2 when no data is shown-->
+<div flex layout="row" ng-if="!app.hasReports && !app.isLoading" class="loading-container">
+    <h1 class="md-title title-no-reports"> אין דו"חות להצגה</h1>
+</div>
+
+<md-button class="md-fab md-fab-bottom-left" ng-click="app.showReportPicker($event)" aria-label="View Reports">
+    <md-icon md-svg-icon="view_reports"></md-icon>
+</md-button>
+
+<script src="./jspm_packages/system.js" type="text/javascript"></script>
+<script src="config.js" type="text/javascript"></script>
+<script type="text/javascript">
+    System
+        .import('src/boot/boot')
+        .catch(console.error.bind(console)); // make sure any errors print to console
+</script>
+</body>
+</html>

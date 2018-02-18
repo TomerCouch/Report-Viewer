@@ -1,0 +1,19 @@
+<md-bottom-sheet class="md-list md-has-header">
+    <div layout="row">
+        <md-subheader> שתף את טופס <span class="name">{{ $ctrl.report.reportNumber }}</span>:
+        </md-subheader>
+        <span flex></span>
+        <md-button ng-click="$ctrl.cancel()">
+            <md-icon md-svg-src="close_black"></md-icon>
+        </md-button>
+    </div>
+    <md-list dir="rtl">
+        <md-item ng-repeat="item in $ctrl.items">
+            <md-button ng-click="$ctrl.performAction(item)" style="text-align: right;">
+                <md-icon md-svg-icon="{{ item.icon }}"></md-icon>
+                {{item.name}}
+            </md-button>
+        </md-item>
+    </md-list>
+
+</md-bottom-sheet>

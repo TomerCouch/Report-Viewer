@@ -1,0 +1,58 @@
+<table class="table table-striped report-table" st-table="displayedReports" st-safe-src="$ctrl.reports">
+    <thead>
+    <!--Table headers-->
+    <tr>
+        <th st-sort="reportType"><span class="md-primary-raised">סוג מסמך</span></th>
+        <th st-sort="reportNumber"><span>מספר מסמך</span></th>
+        <th st-sort="createdDate"><span>תאריך המסמך</span></th>
+        <th st-sort="amount"><span>סכום</span></th>
+        <th st-sort="customerID"><span>מספר לקוח</span></th>
+    </tr>
+    <!--Table Search fields-->
+    <tr class="report-table-search">
+        <th st-search="reportType">
+            <md-input-container><label>לפי מספר</label>
+                <input type="number"/>
+            </md-input-container>
+        </th>
+        <th st-search="reportNumber">
+            <md-input-container><label>לפי מספר</label>
+                <input type="number"/>
+            </md-input-container>
+        </th>
+        <th st-search="createdDate">
+            <md-input-container><label>לפי תאריך</label>
+                <input type="text"/>
+            </md-input-container>
+        </th>
+        <th st-search="amount">
+            <md-input-container><label>לפי מספר</label>
+                <input type="number"/>
+            </md-input-container>
+        </th>
+        <th st-search="customerID">
+            <md-input-container><label>לפי מספר</label>
+                <input type="number"/>
+            </md-input-container>
+        </th>
+    </tr>
+    </thead>
+    <!--Table data-->
+    <tbody>
+    <tr ng-repeat="report in displayedReports">
+        <td> {{ report.reportType}}</td>
+        <td> {{ report.reportNumber}}</td>
+        <td dir="ltr" style="text-align: right"> {{ report.createdDate }}</td>
+        <td> {{ report.amount}}</td>
+        <td> {{ report.customerID}}</td>
+    </tr>
+    </tbody>
+    <!--Pagination-->
+    <tfoot>
+    <tr>
+        <td colspan="5" class="text-center">
+            <div st-pagination="" st-items-by-page="$ctrl.itemsPerPage"></div>
+        </td>
+    </tr>
+    </tfoot>
+</table>

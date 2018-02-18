@@ -1,0 +1,51 @@
+<md-dialog aria-label="Report Picker">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>בחר/י דו"חות להצגה</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-if="ctrl.hasLoadedReports" ng-click="ctrl.cancel()">
+                    <md-icon md-svg-src="close" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-slider-container>
+                    <span>מסוג מסמך</span>
+                    <md-slider flex min="0" max="10" required ng-model="ctrl.request.fromReportType"
+                               aria-label="From Report Type">
+                    </md-slider>
+                    <md-input-container>
+                        <input flex type="number" ng-model="ctrl.request.fromReportType"
+                               aria-label="show from Report Type">
+                    </md-input-container>
+                </md-slider-container>
+                <md-slider-container>
+                    <span>עד סוג מסמך</span>
+                    <md-slider required flex min="{{ctrl.request.fromReportType}}" max="10"
+                               ng-model="ctrl.request.toReportType"
+                               aria-label="To Report Type">
+                    </md-slider>
+                    <md-input-container>
+                        <input flex type="number" ng-model="ctrl.request.toReportType"
+                               aria-label="show to Report Type">
+                    </md-input-container>
+                </md-slider-container>
+                <md-datepicker ng-model="ctrl.request.fromDate" md-max-date="ctrl.request.toDate"
+                               md-placeholder="מתאריך.."></md-datepicker>
+                <md-datepicker ng-model="ctrl.request.toDate" md-min-date="ctrl.request.fromDate"
+                               md-placeholder="עד תאריך.."></md-datepicker>
+
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="ctrl.answer('weekly reports')">הצג מהשבוע האחרון</md-button>
+            <md-button ng-click="ctrl.answer('daily reports')">הצג מהיום</md-button>
+            <span flex></span>
+            <md-button ng-click="ctrl.answer(ctrl.request)">הצג דוחות</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
