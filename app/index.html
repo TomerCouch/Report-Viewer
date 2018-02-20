@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="heb">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +22,7 @@
         <md-icon md-svg-icon="menu"></md-icon>
     </md-button>
     <span class="md-title"> ריווחית - {{app.viewerTitle}}</span>
-    <span class="md-subhead" ng-if="app.hasReports" style="margin-right: 2em;">עודכן לאחרונה: {{app.lastUpdated}}</span>
+    <span class="md-subhead" hide-xs ng-if="app.hasReports" style="margin-right: 2em;">עודכן לאחרונה: {{app.lastUpdated}}</span>
     <span flex></span>
 
     <div aria-label="Menu Buttons" ng-if="app.hasReports">

@@ -78,16 +78,11 @@ class ReportManager {
             "to_date": this.formatDate(toDate)
         };
 
-        let rivhitUrl = 'https://cors-anywhere.herokuapp.com/https://api.rivhit.co.il/online/RivhitOnlineAPI.svc/Document.List';
-
-        let headers = {
-            'Content-Type': 'application/json'
-        };
+        let rivhitUrl = '/reports';
 
         return this.$http({
             method: 'POST',
             url: rivhitUrl,
-            headers,
             data: postBodyRequest
         }).then(({data: {data: {document_list: reports}}}) => this.fetchReports(reports));
     }
