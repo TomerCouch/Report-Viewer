@@ -21,7 +21,7 @@ System.config({
       "angular-smart-table": "npm:angular-smart-table@2.1.11",
       "css": "github:systemjs/plugin-css@0.1.36",
       "json": "github:systemjs/plugin-json@0.1.2",
-      "moment": "npm:moment@2.20.1",
+      "moment": "npm:moment@2.22.0",
     "text": "github:systemjs/plugin-text@0.0.4",
       "traceur": "github:jmcriffey/bower-traceur@0.0.92",
       "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.92",

@@ -19,7 +19,7 @@
       "angular-smart-table": "npm:angular-smart-table@^2.1.11",
       "css": "github:systemjs/plugin-css@^0.1.20",
       "json": "github:systemjs/plugin-json@^0.1.0",
-      "moment": "npm:moment@^2.20.1",
+      "moment": "npm:moment@^2.22.0",
       "text": "github:systemjs/plugin-text@^0.0.4"
     },
     "devDependencies": {
@@ -38,7 +38,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "moment": "^2.20.1",
+    "systemjs": "^0.21.2",
     "request": "^2.83.0"
   }
 }
