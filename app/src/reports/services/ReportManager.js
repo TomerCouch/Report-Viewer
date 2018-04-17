@@ -95,6 +95,14 @@ class ReportManager {
         return this.reports;
     }
 
+    findReport(report) {
+        if (!report || !this.reports) {
+            return;
+        }
+
+        return this.reports.find(current => current.reportNumber === report.reportNumber);
+    }
+
     isValidDate(date) {
         let m = moment(date);
         return m.isValid();

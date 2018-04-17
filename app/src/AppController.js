@@ -55,7 +55,7 @@ class AppController {
 
     /**
      * Select the current report
-     * @param report chosen report from list- by item number or actual object
+     * @param report - chosen report from list - by item number or actual object
      */
     selectReport(report) {
         this.selected = angular.isNumber(report) ? this.reports[report] : report;
@@ -130,15 +130,18 @@ class AppController {
     // It return reports in a certain range. without request returns all reports.
     // reportRequest- object that conatain Dates range and report types range
     onReportsLoaded(reports) {
-        if (reports) {
-            this.isLoading = false;
-            this.reports = reports;
-            this.lastUpdated = new Date(Date.now()).toLocaleString();
-            this.hasReports = reports.length;
+        if (!reports) {
+            return;
+        }
 
-            if (this.hasReports) {
-                this.selectReport(reports[0]);
-            }
+        this.isLoading = false;
+        this.reports = reports;
+        this.lastUpdated = new Date(Date.now()).toLocaleString();
+        this.hasReports = reports.length;
+
+        if (this.hasReports) {
+            let selected = this.ReportManager.findReport(this.selected);
+            this.selectReport(selected);
         }
     }
 }

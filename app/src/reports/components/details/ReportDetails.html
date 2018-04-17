@@ -1,4 +1,4 @@
-<div layout="row">
+<div layout="row" ng-if="$ctrl.selected">
     <!--Image by report-type-->
     <md-icon md-svg-icon="svg-{{$ctrl.selected.reportType}}" class="avatar"></md-icon>
     <span flex></span>
@@ -6,6 +6,7 @@
         <md-icon md-svg-icon="share"></md-icon>
     </md-button>
 </div>
+<div ng-if="$ctrl.selected">
 <h2 style="text-align: center;" dir="ltr">{{$ctrl.selected.reportNumber}} טופס מספר </h2>
 <table class="table report-table">
     <thead>
@@ -29,8 +30,8 @@
     </tbody>
 </table>
 
-<!--TODO: share button on the bottom-right: even with the sidenav opens/closes, even when different screen sizes are applyed, at scrolling -->
+    <!--TODO: share button on the bottom-right: even with the sidenav opens/closes, even when different screen sizes are applyed, at scrolling -->
 <!--<md-button class="md-fab md-fab-bottom-right" hide-sm hide-xs ng-click="$ctrl.share($event)" aria-label="Share">-->
 <!--<md-icon md-svg-icon="share"></md-icon>-->
 <!--</md-button>-->
-
+</div>

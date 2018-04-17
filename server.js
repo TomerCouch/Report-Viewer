@@ -21,11 +21,6 @@ app.post('/reports', (req, res) => {
     }).pipe(res);
 });
 
-app.use((err, req, res) => {
-    console.error(err.stack);
-    res.sendStatus(500)
-});
-
 app.get("/", function (req, res) {
     res.sendFile("./index.html"); //index.html file of your angularjs application
 });
